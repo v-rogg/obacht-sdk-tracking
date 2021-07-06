@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z+github.com/v-rogg/xx_communication/protobuf',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\rrawdata.proto\x12\x08protobuf\"\"\n\nCoordinate\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\"?\n\x10TransformRequest\x12+\n\rrawCoordinate\x18\x01 \x03(\x0b\x32\x14.protobuf.Coordinate\"F\n\x0fTransformAnswer\x12\x33\n\x15transformedCoordinate\x18\x01 \x03(\x0b\x32\x14.protobuf.Coordinate2O\n\x07RawData\x12\x44\n\tTransform\x12\x1a.protobuf.TransformRequest\x1a\x19.protobuf.TransformAnswer\"\x00\x42-Z+github.com/v-rogg/xx_communication/protobufb\x06proto3'
+  serialized_pb=b'\n\rrawdata.proto\x12\x08protobuf\"\"\n\nCoordinate\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\"O\n\x10TransformRequest\x12+\n\rrawCoordinate\x18\x01 \x03(\x0b\x32\x14.protobuf.Coordinate\x12\x0e\n\x06radian\x18\x02 \x01(\x02\"F\n\x0fTransformAnswer\x12\x33\n\x15transformedCoordinate\x18\x01 \x03(\x0b\x32\x14.protobuf.Coordinate2O\n\x07RawData\x12\x44\n\tTransform\x12\x1a.protobuf.TransformRequest\x1a\x19.protobuf.TransformAnswer\"\x00\x42-Z+github.com/v-rogg/xx_communication/protobufb\x06proto3'
 )
 
 
@@ -79,6 +79,13 @@ _TRANSFORMREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='radian', full_name='protobuf.TransformRequest.radian', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -92,7 +99,7 @@ _TRANSFORMREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=63,
-  serialized_end=126,
+  serialized_end=142,
 )
 
 
@@ -123,8 +130,8 @@ _TRANSFORMANSWER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=128,
-  serialized_end=198,
+  serialized_start=144,
+  serialized_end=214,
 )
 
 _TRANSFORMREQUEST.fields_by_name['rawCoordinate'].message_type = _COORDINATE
@@ -165,8 +172,8 @@ _RAWDATA = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=200,
-  serialized_end=279,
+  serialized_start=216,
+  serialized_end=295,
   methods=[
   _descriptor.MethodDescriptor(
     name='Transform',

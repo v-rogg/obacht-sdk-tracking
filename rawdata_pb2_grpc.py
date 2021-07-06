@@ -15,9 +15,9 @@ class RawDataStub(object):
             channel: A grpc.Channel.
         """
         self.Transform = channel.unary_unary(
-                '/protobuf.RawData/Transform',
+                '/pb.RawData/Transform',
                 request_serializer=rawdata__pb2.TransformRequest.SerializeToString,
-                response_deserializer=rawdata__pb2.TransformAnswer.FromString,
+                response_deserializer=rawdata__pb2.TransformResponse.FromString,
                 )
 
 
@@ -36,11 +36,11 @@ def add_RawDataServicer_to_server(servicer, server):
             'Transform': grpc.unary_unary_rpc_method_handler(
                     servicer.Transform,
                     request_deserializer=rawdata__pb2.TransformRequest.FromString,
-                    response_serializer=rawdata__pb2.TransformAnswer.SerializeToString,
+                    response_serializer=rawdata__pb2.TransformResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'protobuf.RawData', rpc_method_handlers)
+            'pb.RawData', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -59,8 +59,8 @@ class RawData(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/protobuf.RawData/Transform',
+        return grpc.experimental.unary_unary(request, target, '/pb.RawData/Transform',
             rawdata__pb2.TransformRequest.SerializeToString,
-            rawdata__pb2.TransformAnswer.FromString,
+            rawdata__pb2.TransformResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

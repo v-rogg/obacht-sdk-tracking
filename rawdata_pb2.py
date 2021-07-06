@@ -15,11 +15,11 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='rawdata.proto',
-  package='protobuf',
+  package='pb',
   syntax='proto3',
-  serialized_options=b'Z+github.com/v-rogg/xx_communication/protobuf',
+  serialized_options=b'Z%github.com/v-rogg/xx_communication/pb',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\rrawdata.proto\x12\x08protobuf\"\"\n\nCoordinate\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\"O\n\x10TransformRequest\x12+\n\rrawCoordinate\x18\x01 \x03(\x0b\x32\x14.protobuf.Coordinate\x12\x0e\n\x06radian\x18\x02 \x01(\x02\"F\n\x0fTransformAnswer\x12\x33\n\x15transformedCoordinate\x18\x01 \x03(\x0b\x32\x14.protobuf.Coordinate2O\n\x07RawData\x12\x44\n\tTransform\x12\x1a.protobuf.TransformRequest\x1a\x19.protobuf.TransformAnswer\"\x00\x42-Z+github.com/v-rogg/xx_communication/protobufb\x06proto3'
+  serialized_pb=b'\n\rrawdata.proto\x12\x02pb\"\"\n\nCoordinate\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\"J\n\x10TransformRequest\x12&\n\x0erawCoordinates\x18\x01 \x03(\x0b\x32\x0e.pb.Coordinate\x12\x0e\n\x06radian\x18\x02 \x01(\x02\"C\n\x11TransformResponse\x12.\n\x16transformedCoordinates\x18\x01 \x03(\x0b\x32\x0e.pb.Coordinate2E\n\x07RawData\x12:\n\tTransform\x12\x14.pb.TransformRequest\x1a\x15.pb.TransformResponse\"\x00\x42\'Z%github.com/v-rogg/xx_communication/pbb\x06proto3'
 )
 
 
@@ -27,21 +27,21 @@ DESCRIPTOR = _descriptor.FileDescriptor(
 
 _COORDINATE = _descriptor.Descriptor(
   name='Coordinate',
-  full_name='protobuf.Coordinate',
+  full_name='pb.Coordinate',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='x', full_name='protobuf.Coordinate.x', index=0,
+      name='x', full_name='pb.Coordinate.x', index=0,
       number=1, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='y', full_name='protobuf.Coordinate.y', index=1,
+      name='y', full_name='pb.Coordinate.y', index=1,
       number=2, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
@@ -59,28 +59,28 @@ _COORDINATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=27,
-  serialized_end=61,
+  serialized_start=21,
+  serialized_end=55,
 )
 
 
 _TRANSFORMREQUEST = _descriptor.Descriptor(
   name='TransformRequest',
-  full_name='protobuf.TransformRequest',
+  full_name='pb.TransformRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='rawCoordinate', full_name='protobuf.TransformRequest.rawCoordinate', index=0,
+      name='rawCoordinates', full_name='pb.TransformRequest.rawCoordinates', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='radian', full_name='protobuf.TransformRequest.radian', index=1,
+      name='radian', full_name='pb.TransformRequest.radian', index=1,
       number=2, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
@@ -98,21 +98,21 @@ _TRANSFORMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=63,
-  serialized_end=142,
+  serialized_start=57,
+  serialized_end=131,
 )
 
 
-_TRANSFORMANSWER = _descriptor.Descriptor(
-  name='TransformAnswer',
-  full_name='protobuf.TransformAnswer',
+_TRANSFORMRESPONSE = _descriptor.Descriptor(
+  name='TransformResponse',
+  full_name='pb.TransformResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='transformedCoordinate', full_name='protobuf.TransformAnswer.transformedCoordinate', index=0,
+      name='transformedCoordinates', full_name='pb.TransformResponse.transformedCoordinates', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -130,58 +130,58 @@ _TRANSFORMANSWER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=144,
-  serialized_end=214,
+  serialized_start=133,
+  serialized_end=200,
 )
 
-_TRANSFORMREQUEST.fields_by_name['rawCoordinate'].message_type = _COORDINATE
-_TRANSFORMANSWER.fields_by_name['transformedCoordinate'].message_type = _COORDINATE
+_TRANSFORMREQUEST.fields_by_name['rawCoordinates'].message_type = _COORDINATE
+_TRANSFORMRESPONSE.fields_by_name['transformedCoordinates'].message_type = _COORDINATE
 DESCRIPTOR.message_types_by_name['Coordinate'] = _COORDINATE
 DESCRIPTOR.message_types_by_name['TransformRequest'] = _TRANSFORMREQUEST
-DESCRIPTOR.message_types_by_name['TransformAnswer'] = _TRANSFORMANSWER
+DESCRIPTOR.message_types_by_name['TransformResponse'] = _TRANSFORMRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Coordinate = _reflection.GeneratedProtocolMessageType('Coordinate', (_message.Message,), {
   'DESCRIPTOR' : _COORDINATE,
   '__module__' : 'rawdata_pb2'
-  # @@protoc_insertion_point(class_scope:protobuf.Coordinate)
+  # @@protoc_insertion_point(class_scope:pb.Coordinate)
   })
 _sym_db.RegisterMessage(Coordinate)
 
 TransformRequest = _reflection.GeneratedProtocolMessageType('TransformRequest', (_message.Message,), {
   'DESCRIPTOR' : _TRANSFORMREQUEST,
   '__module__' : 'rawdata_pb2'
-  # @@protoc_insertion_point(class_scope:protobuf.TransformRequest)
+  # @@protoc_insertion_point(class_scope:pb.TransformRequest)
   })
 _sym_db.RegisterMessage(TransformRequest)
 
-TransformAnswer = _reflection.GeneratedProtocolMessageType('TransformAnswer', (_message.Message,), {
-  'DESCRIPTOR' : _TRANSFORMANSWER,
+TransformResponse = _reflection.GeneratedProtocolMessageType('TransformResponse', (_message.Message,), {
+  'DESCRIPTOR' : _TRANSFORMRESPONSE,
   '__module__' : 'rawdata_pb2'
-  # @@protoc_insertion_point(class_scope:protobuf.TransformAnswer)
+  # @@protoc_insertion_point(class_scope:pb.TransformResponse)
   })
-_sym_db.RegisterMessage(TransformAnswer)
+_sym_db.RegisterMessage(TransformResponse)
 
 
 DESCRIPTOR._options = None
 
 _RAWDATA = _descriptor.ServiceDescriptor(
   name='RawData',
-  full_name='protobuf.RawData',
+  full_name='pb.RawData',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=216,
-  serialized_end=295,
+  serialized_start=202,
+  serialized_end=271,
   methods=[
   _descriptor.MethodDescriptor(
     name='Transform',
-    full_name='protobuf.RawData.Transform',
+    full_name='pb.RawData.Transform',
     index=0,
     containing_service=None,
     input_type=_TRANSFORMREQUEST,
-    output_type=_TRANSFORMANSWER,
+    output_type=_TRANSFORMRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

@@ -19,12 +19,23 @@ class RawDataStub(object):
                 request_serializer=rawdata__pb2.TransformRequest.SerializeToString,
                 response_deserializer=rawdata__pb2.TransformResponse.FromString,
                 )
+        self.TrackPersons = channel.unary_unary(
+                '/pb.RawData/TrackPersons',
+                request_serializer=rawdata__pb2.TrackRequest.SerializeToString,
+                response_deserializer=rawdata__pb2.TrackResponse.FromString,
+                )
 
 
 class RawDataServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def Transform(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def TrackPersons(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -37,6 +48,11 @@ def add_RawDataServicer_to_server(servicer, server):
                     servicer.Transform,
                     request_deserializer=rawdata__pb2.TransformRequest.FromString,
                     response_serializer=rawdata__pb2.TransformResponse.SerializeToString,
+            ),
+            'TrackPersons': grpc.unary_unary_rpc_method_handler(
+                    servicer.TrackPersons,
+                    request_deserializer=rawdata__pb2.TrackRequest.FromString,
+                    response_serializer=rawdata__pb2.TrackResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -62,5 +78,22 @@ class RawData(object):
         return grpc.experimental.unary_unary(request, target, '/pb.RawData/Transform',
             rawdata__pb2.TransformRequest.SerializeToString,
             rawdata__pb2.TransformResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TrackPersons(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/pb.RawData/TrackPersons',
+            rawdata__pb2.TrackRequest.SerializeToString,
+            rawdata__pb2.TrackResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z%github.com/v-rogg/xx_communication/pb',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\rrawdata.proto\x12\x02pb\"\"\n\nCoordinate\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\"J\n\x10TransformRequest\x12&\n\x0erawCoordinates\x18\x01 \x03(\x0b\x32\x0e.pb.Coordinate\x12\x0e\n\x06radian\x18\x02 \x01(\x02\"C\n\x11TransformResponse\x12.\n\x16transformedCoordinates\x18\x01 \x03(\x0b\x32\x0e.pb.Coordinate\"F\n\x04Zone\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12-\n\x15zoneObjectCoordinates\x18\x02 \x03(\x0b\x32\x0e.pb.Coordinate\";\n\x04Scan\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\"\n\nscanPoints\x18\x02 \x03(\x0b\x32\x0e.pb.Coordinate\"@\n\x0cTrackRequest\x12\x17\n\x05zones\x18\x01 \x03(\x0b\x32\x08.pb.Zone\x12\x17\n\x05scans\x18\x02 \x03(\x0b\x32\x08.pb.Scan\"0\n\rTrackResponse\x12\x1f\n\x07persons\x18\x01 \x03(\x0b\x32\x0e.pb.Coordinate2|\n\x07RawData\x12:\n\tTransform\x12\x14.pb.TransformRequest\x1a\x15.pb.TransformResponse\"\x00\x12\x35\n\x0cTrackPersons\x12\x10.pb.TrackRequest\x1a\x11.pb.TrackResponse\"\x00\x42\'Z%github.com/v-rogg/xx_communication/pbb\x06proto3'
+  serialized_pb=b'\n\rrawdata.proto\x12\x02pb\"\"\n\nCoordinate\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\"J\n\x10TransformRequest\x12&\n\x0erawCoordinates\x18\x01 \x03(\x0b\x32\x0e.pb.Coordinate\x12\x0e\n\x06radian\x18\x02 \x01(\x02\"C\n\x11TransformResponse\x12.\n\x16transformedCoordinates\x18\x01 \x03(\x0b\x32\x0e.pb.Coordinate\"F\n\x04Zone\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12-\n\x15zoneObjectCoordinates\x18\x02 \x03(\x0b\x32\x0e.pb.Coordinate\";\n\x04Scan\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\"\n\nscanPoints\x18\x02 \x03(\x0b\x32\x0e.pb.Coordinate\"a\n\x0cTrackRequest\x12\x17\n\x05zones\x18\x01 \x03(\x0b\x32\x08.pb.Zone\x12\x17\n\x05scans\x18\x02 \x03(\x0b\x32\x08.pb.Scan\x12\x0b\n\x03\x65ps\x18\x03 \x01(\x02\x12\x12\n\nminSamples\x18\x04 \x01(\x03\"0\n\rTrackResponse\x12\x1f\n\x07persons\x18\x01 \x03(\x0b\x32\x0e.pb.Coordinate2|\n\x07RawData\x12:\n\tTransform\x12\x14.pb.TransformRequest\x1a\x15.pb.TransformResponse\"\x00\x12\x35\n\x0cTrackPersons\x12\x10.pb.TrackRequest\x1a\x11.pb.TrackResponse\"\x00\x42\'Z%github.com/v-rogg/xx_communication/pbb\x06proto3'
 )
 
 
@@ -235,6 +235,20 @@ _TRACKREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='eps', full_name='pb.TrackRequest.eps', index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='minSamples', full_name='pb.TrackRequest.minSamples', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -248,7 +262,7 @@ _TRACKREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=335,
-  serialized_end=399,
+  serialized_end=432,
 )
 
 
@@ -279,8 +293,8 @@ _TRACKRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=401,
-  serialized_end=449,
+  serialized_start=434,
+  serialized_end=482,
 )
 
 _TRANSFORMREQUEST.fields_by_name['rawCoordinates'].message_type = _COORDINATE
@@ -358,8 +372,8 @@ _RAWDATA = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=451,
-  serialized_end=575,
+  serialized_start=484,
+  serialized_end=608,
   methods=[
   _descriptor.MethodDescriptor(
     name='Transform',

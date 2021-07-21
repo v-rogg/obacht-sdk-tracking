@@ -64,7 +64,7 @@ class RawDataServer(RawDataServicer):
 
         if len(combined_scan_points) > 0:
             x = np.array(combined_scan_points)
-            clustering = DBSCAN(eps=100, min_samples=2).fit(x)
+            clustering = DBSCAN(eps=request.eps, min_samples=request.minSamples).fit(x)
 
             clustered_dict = {}
 
